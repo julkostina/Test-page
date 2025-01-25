@@ -1,0 +1,42 @@
+$grey: rgba(146, 146, 146, 1);
+@font-face {
+  font-family: "Raleway";
+  src: url("../../../public/fonts/Raleway-Light.ttf") format("truetype");
+}
+footer {
+  display: block;
+  figcaption {
+    font-family: "Raleway";
+    font-size: 12px;
+  }
+}
+.footer-details {
+  padding: 68px 140px 65px 140px;
+  color: $grey;
+  background-color: rgba(65, 65, 65, 1);
+  display: flex;
+  align-items: center;
+  gap: 202px;
+  a{
+    color: $grey;
+  }
+  li{
+    padding-top: 8px;
+  }
+  
+}
+.footer-details-links {
+  display: flex;
+  gap: 150px;
+  ul {
+  }
+}
+.footer-copyright {
+  background-color: rgba(56, 56, 56, 1);
+  color: rgba(89, 89, 89, 1);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 16.8px;
+  text-align: center;
+  padding: 27px 0;
+}

@@ -89,7 +89,7 @@ const Slider: React.FC = () => {
                   color: "rgba(52, 52, 52, 1)",
                   right: "50px",
                 },
-              },
+              },  
               "& .MuiSwitch-track": {
                 backgroundColor: "rgba(52, 52, 52, 1)",
                 height: "30px",

@@ -1,0 +1,17 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 140px ;
+    background-color: rgba(52, 52, 52, 1);
+    align-items: center;
+}
+.nav-details {
+    display: inline-flex;
+    gap:37px;
+    a{
+      color: rgba(255, 255, 255, 1);
+    }
+  li:hover{
+    cursor:pointer;
+  }
+}
