@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Slider from './components/Slider/slider.tsx';
+import Slider from './components/SliderSection/sliderSection.tsx';
 import NavBar from './components/NavBar/navBar.tsx';
 import Footer from './components/Footer/footer.tsx';
 

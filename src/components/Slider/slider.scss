@@ -1,62 +1,17 @@
-.slider {
-  background: no-repeat center url("../../../public/imgs/background.png");
-  background-size: cover;
-  padding: 145px 140px;
-}
-.slider-container-caption {
-  display: grid;
-  background-color: rgba(255, 255, 255, 1);
-  border-radius: 20px;
-  padding: 144px 42px 55px 41px;
-  gap: 55px;
-  figure {
-    text-align: center;
-    display: grid;
-    gap: 10px;
-    width: 177px;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 19.2px;
-  }
-  hr{
-    margin-top: -5px;
-    height: 1.04px;
-    color:rgba(222, 208, 152, 1);
-  }
-  img {
-    height: 48px;
-    width:177px;
-  }
-}
-.slider-container{
-    display: flex;
-    height: 400px;
-    gap:20px;
-    width: 100%;
-}
-
 .slider-container-slides{
-  & .swiper-vertical > .swiper-pagination-bullets, .swiper-pagination-vertical.swiper-pagination-bullets{
-    right: 115px;
-    align-items: center;
-    justify-items: center;
-    display: grid;
-    & .swiper-pagination-bullet{
-      height: 15px;
-      width: 15px;
-      background-color: rgba(255, 255, 255, 1);
-      &.swiper-pagination-bullet-active{
-        height: 25px;
-      width: 25px;
+    & .swiper-vertical > .swiper-pagination-bullets, .swiper-pagination-vertical.swiper-pagination-bullets{
+      right: 115px;
+      align-items: center;
+      justify-items: center;
+      display: grid;
+      & .swiper-pagination-bullet{
+        height: 15px;
+        width: 15px;
+        background-color: rgba(255, 255, 255, 1);
+        &.swiper-pagination-bullet-active{
+          height: 25px;
+        width: 25px;
+        }
       }
     }
   }
-}
-.slider-footer{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 10px;
-  background-color: rgba(61, 148, 142, 1);
-  width: 100%;
-}
