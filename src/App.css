@@ -1,10 +1,17 @@
 @font-face {
-  font-family: "Museo Sans Cyrl";
-  src: url("../public/fonts/museosanscyrl_100.otf");
+  font-family: "Poppins-Light";
+  src: url("../public/fonts/Poppins-Light.ttf") format("truetype");
 }
-
+@font-face {
+  font-family: "Poppins-SemiBold";
+  src: url("../public/fonts/Poppins-SemiBold.ttf") format("truetype");
+}
+@font-face{
+  font-family: "Poppins-Regular";
+  src: url("../public/fonts/Poppins-Regular.ttf") format("truetype");
+}
 * {
-  font-family: "Museo Sans Cyrl", sans-serif;
+  font-family: "Poppins-Light", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;

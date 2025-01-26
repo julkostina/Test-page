@@ -1,0 +1,22 @@
+$green: rgba(61, 148, 140, 1);
+$white:rgba(255, 255, 255, 1);
+
+.talk-about-section {
+  background-color: $green;
+  color: $white;
+  display: grid;
+  padding: 50px 374px 62px 375px;
+    gap:62px;
+  h1 {
+    font-size: 50px;
+    font-family: "Poppins-SemiBold";
+    line-height: 60px;
+    text-align: center;
+  }
+  
+}
+.talk-about-section-caption {
+  display: grid;
+  text-align: center;
+  align-items: center;
+}
