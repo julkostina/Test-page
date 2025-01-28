@@ -1,0 +1,30 @@
+$white: rgba(255, 255, 255, 1);
+$green: rgba(61, 148, 140, 1);
+$light-grey: rgba(153, 155, 154, 1);
+$grey: rgba(52, 52, 52, 1);
+$dark-grey: rgba(66, 66, 66, 1);
+$yellow: rgba(231, 208, 140, 1);
+.provided-services {
+  height: 340vh;
+  background-color: $white;
+  background-image: url("../../../public/imgs/Ellipse\ 16\(1\).svg"),
+    url("../../../public/imgs/Vector\ 10.svg"),
+    url("../../../public/imgs/Ellipse\ 16\(1\).svg"),
+    url("../../../public/imgs/Group\ 72.svg");
+  background-repeat: no-repeat;
+  background-position: 128px 86px, 140px 90px, 1288px 1037px, 131px 1037px;
+}
+.provided-services-search {
+  height: 100vh;
+  display: grid;
+  gap:35px;
+  align-items: center;
+  padding: 65px 141px 40px 200px;
+  h1 {
+    text-align: left;
+    font-family: 'Poppins-SemiBold', sans-serif;
+    font-size: 50px;
+    line-height: 60px;
+    color: $light-grey;
+  }
+}

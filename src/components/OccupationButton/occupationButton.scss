@@ -1,0 +1,40 @@
+@mixin occupation-style {
+  background-color: rgba(235, 235, 235, 1);
+  border-radius: 20px;
+  padding: 3px 18px;
+  text-wrap: nowrap;
+}
+.occupation-button {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  overflow: visible;
+  height: 45px;
+  padding-top: 11px;
+  ul {
+    flex-wrap: wrap;
+    row-gap: 5px;
+    column-gap: 10px;
+  }
+}
+.occupation-button_open {
+  transform: rotate(90deg);
+  border: none;
+  background-color: transparent;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.occupation-button-container {
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    p {
+      @include occupation-style;
+    }
+  }
+}
+.occupation-button-default {
+  @include occupation-style;
+}

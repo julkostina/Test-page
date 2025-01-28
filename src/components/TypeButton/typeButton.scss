@@ -1,0 +1,39 @@
+$light-grey: rgba(235, 235, 235, 1);
+.type-button {
+  display: flex;
+  font-size: 16px;
+  line-height: 23.2px;
+  gap: 10px;
+  align-items: center;
+  height: 28px;
+}
+.type-button-types {
+  background-color: $light-grey;
+  border-radius: 15px;
+  display: flex;
+  ul{
+    gap:5px;
+  }
+}
+.type-button_open {
+  height: 28px;
+  border-radius: 50px;
+  width: 28px;
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.type-button-types-container{
+    padding: 6px;
+    display: flex;
+    gap:5px;
+    li{
+        height: 16px;
+        width: 16px;
+        border-radius: 50px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
