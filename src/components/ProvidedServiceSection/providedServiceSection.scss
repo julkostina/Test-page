@@ -5,26 +5,111 @@ $grey: rgba(52, 52, 52, 1);
 $dark-grey: rgba(66, 66, 66, 1);
 $yellow: rgba(231, 208, 140, 1);
 .provided-services {
-  height: 340vh;
+  height: 350vh;
   background-color: $white;
   background-image: url("../../../public/imgs/Ellipse\ 16\(1\).svg"),
     url("../../../public/imgs/Vector\ 10.svg"),
     url("../../../public/imgs/Ellipse\ 16\(1\).svg"),
     url("../../../public/imgs/Group\ 72.svg");
   background-repeat: no-repeat;
-  background-position: 128px 86px, 140px 90px, 1288px 1037px, 131px 1037px;
+  background-position: 128px 90px, 140px 115px, 1288px 1062px, 131px 1087px;
+  display: grid;
+  gap: 90px;
 }
 .provided-services-search {
-  height: 100vh;
+  height: 95vh;
   display: grid;
-  gap:35px;
+  gap: 35px;
   align-items: center;
-  padding: 65px 141px 40px 200px;
+  padding: 65px 141px 0 200px;
   h1 {
     text-align: left;
-    font-family: 'Poppins-SemiBold', sans-serif;
+    font-family: "Poppins-SemiBold", sans-serif;
     font-size: 50px;
     line-height: 60px;
     color: $light-grey;
+  }
+}
+.provided-services-design {
+  height: 565px;
+  width: 1240px;
+  margin:  0;
+  display: flex;
+  position: relative;
+  background-image: url("../../../public/imgs/background-image.png");
+  background-repeat: no-repeat;
+  img {
+    align-self: end;
+    margin-right: 115px;
+  }
+  hr {
+    position: absolute;
+    background-color: $green;
+    height: 11px;
+    width: 960px;
+    bottom: -11px;
+    left: 140px;
+    border: none;
+  }
+}
+.provided-services-design-description {
+  width: 100vw;
+  color: $dark-grey;
+  padding: 140px;
+  h1 {
+    font-size: 75px;
+    line-height: 75px;
+    font-family: "Poppins-SemiBold";
+  }
+  span {
+    font-size: 80px;
+    line-height: 80px;
+    font-family: "Poppins-SemiBold";
+  }
+  p {
+    margin-top: 5px;
+    font-family: "Poppins-ExtraLight";
+    font-size: 35px;
+    line-height: 35px;
+  }
+  button {
+    margin-top: 35px;
+    padding: 15px 46px;
+    background-color: $green;
+    color: $white;
+    font-family: "Poppins-Regular";
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    border: none;
+    border-radius: 25px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+.instructional-design-description {
+  display: flex;
+  gap: 108px;
+  padding: 37px 0;
+  width: 1100px;
+}
+.clients-love{
+  display: flex;
+  gap: 108px;
+  align-items: center;
+  padding:0 0 94px 141px ;
+}
+.instructional-design {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding:30px 0 0 200px;
+  h1 {
+    font-size: 50px;
+    font-family: "Poppins-SemiBold";
+    line-height: 60px;
+    color:$light-grey;
+
   }
 }

@@ -20,7 +20,6 @@ const OccupationButton: React.FC<OccupationButtonProps> = ({
   return (
     <div
       className="occupation-button"
-      onClick={() => setOccupation(occupation)}
     >
       <p>Occupation</p>
       {open ? (
@@ -31,7 +30,7 @@ const OccupationButton: React.FC<OccupationButtonProps> = ({
                 <li
                   key={index}
                   onClick={() => {
-                    setOccupation(item);
+                    setOccupation(item.toLowerCase());
                     setOpen(!open);
                   }}
                 >
