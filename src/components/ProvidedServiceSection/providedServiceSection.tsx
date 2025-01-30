@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./providedServiceSection.scss";
 import List from "../List/list.tsx";
+import { ThemeContext } from "../../contexts/themeContext.tsx";
 import InstDesignItem from "../InstDesignItem/instDesignItem.tsx";
 const ProvidedServiceSection: React.FC = () => {
+  const {isDark}= useContext(ThemeContext);
   return (
-    <section className="provided-services">
+    <section className="provided-services" style={{backgroundColor: isDark ? "rgba(65, 65, 65, 1)" : "rgba(255, 255, 255, 1)", color: isDark ? "rgba(255, 255, 255, 1)" : " rgba(65, 65, 65, 1)"}}>
       <div className="provided-services-search">
         <h1>Services We Provide</h1>
         <List />

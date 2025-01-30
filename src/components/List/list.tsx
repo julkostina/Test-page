@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { use, useEffect } from "react";
 import "./list.scss";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -15,6 +15,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/pagination";
 
 import { Pagination } from "swiper/modules";
+import { ThemeContext } from "../../contexts/themeContext.tsx";
 
 const List: React.FC = () => {
   const [search, setSearch] = React.useState<string>("");
@@ -66,7 +67,8 @@ const List: React.FC = () => {
       ),
     },
   ];
-  const arrayOfOccupations = typeStyles.map((style,index) => {
+  const arrayOfOccupations = typeStyles.map((style) => {
+    const isDark = React.useContext(ThemeContext);
    return  itemDescriptions.map((item) => {
     console.log("occupation",occupation);
       return {
@@ -85,7 +87,7 @@ const List: React.FC = () => {
        res+='<button className="pagination-button"><img src="./imgs/arrow-grey.svg"/></button>';
       }
       if(index<3&&index!==arrayOfOccupations.length-1){
-        res+='<span class="' + className + '">' + (index + 1) + "</span>";
+        res+='<span class="' + className + `">` + (index + 1) + "</span>";
       }
       if(index===arrayOfOccupations.length-1){
         res+='<button className="pagination-button"><img src="./imgs/arrow-grey.svg"/></button>';

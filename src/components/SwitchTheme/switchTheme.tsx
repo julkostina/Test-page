@@ -1,7 +1,7 @@
 import React from "react";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
-
+import { ThemeContext } from "../../contexts/themeContext.tsx";
 const thumbStyles = {
   backgroundColor: "rgba(255, 255, 255, 1)",
   backgroundRepeat: "no-repeat",
@@ -19,6 +19,7 @@ const trackStyles = {
 };
 
 const SwitchTheme: React.FC = () => {
+  const {isDark, setIsDark} = React.useContext(ThemeContext);
   return (
     <FormControlLabel
       sx={{
@@ -78,6 +79,7 @@ const SwitchTheme: React.FC = () => {
         },
       }}
       control={<Switch defaultChecked />}
+      onClick={()=>{setIsDark(!isDark)}}
       label=""
     />
   );

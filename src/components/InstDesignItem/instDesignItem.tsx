@@ -6,8 +6,9 @@ interface InstDesignItemProps {
     items: string[];
 }
 const InstDesignItem: React.FC<InstDesignItemProps> = ({title, description, items}) => {
+    const [isDark, setIsDark] = React.useState<boolean>(false);
     return(
-        <div className="instructional-design-description-item">
+        <div className="instructional-design-description-item" style={{ color: !isDark ? "rgba(255, 255, 255, 1)" : " rgba(65, 65, 65, 1)"}}>
             <h3>
                 {title}
             </h3>
