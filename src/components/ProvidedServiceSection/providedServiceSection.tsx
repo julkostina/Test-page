@@ -7,7 +7,7 @@ const ProvidedServiceSection: React.FC = () => {
   const {isDark}= useContext(ThemeContext);
   return (
     <section className="provided-services" style={{backgroundColor: isDark ? "rgba(65, 65, 65, 1)" : "rgba(255, 255, 255, 1)", color: isDark ? "rgba(255, 255, 255, 1)" : " rgba(65, 65, 65, 1)"}}>
-      <div className="provided-services-search">
+      <div id="provided-services-search">
         <h1>Services We Provide</h1>
         <List />
       </div>
@@ -21,7 +21,7 @@ const ProvidedServiceSection: React.FC = () => {
         <img src="./imgs/human-image.png" alt="" />
         <hr />
       </div>
-      <div className="instructional-design">
+      <div id="instructional-design">
         <h1>Instructional Design</h1>
         <div className="instructional-design-description">
           <img src="./imgs/Ellipse1.png" alt="Instructional design " />

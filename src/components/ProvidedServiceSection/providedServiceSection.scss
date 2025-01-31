@@ -16,7 +16,7 @@ $yellow: rgba(231, 208, 140, 1);
   display: grid;
   gap: 90px;
 }
-.provided-services-search {
+#provided-services-search {
   height: 95vh;
   display: grid;
   gap: 35px;
@@ -100,7 +100,7 @@ $yellow: rgba(231, 208, 140, 1);
   align-items: center;
   padding:0 0 94px 141px ;
 }
-.instructional-design {
+#instructional-design {
   display: flex;
   flex-direction: column;
   justify-content: end;

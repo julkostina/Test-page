@@ -3,7 +3,7 @@ import React from "react";
 const Footer: React.FC = () => {
   return (
     <footer>
-      <div className="footer-details">
+      <div id="footer-details">
         <figure>
           <img src="./imgs/logo-transparent.svg" alt="logo" />
           <figcaption>Taking learning to the next level</figcaption>

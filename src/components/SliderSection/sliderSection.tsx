@@ -35,6 +35,7 @@ const SliderSection: React.FC = () => {
           <SwitchTheme/>
         </div>
         <Slider photos={photos} />
+      <hr className="slider-bottom-line"/>
       </div>
     </section>
   );

@@ -101,7 +101,6 @@ const List: React.FC = () => {
       hrStyle: string;
     }[]
   >(arrayOfItems.flatMap((item) => item));
-  console.log("type: " + type[0]);
   React.useEffect(() => {
     if (occupation.toLocaleLowerCase() === "all" && type.length === 0) {
       setArrayOfOccupations(() => arrayOfItems.flat());
@@ -118,11 +117,16 @@ const List: React.FC = () => {
     if (occupation.toLocaleLowerCase() === "all" && type.length !== 0) {
       setArrayOfOccupations(() =>
         arrayOfItems.flatMap((occupationArray) => {
-          return occupationArray.filter(
-            (occ) =>
-              React.isValidElement(occ.img) &&
-              (occ.img.props as React.SVGProps<SVGElement>).fill === type[0]
-          );
+          return occupationArray.filter((occ) => {
+            if (type.length === 1) {
+              return (React.isValidElement(occ.img) &&
+                (occ.img.props as React.SVGProps<SVGElement>).fill === type[0])
+            } if(type.length===2&&occ.img.props.stroke!==undefined) {
+              return(React.isValidElement(occ.img) &&
+                (occ.img.props as React.SVGProps<SVGElement>).fill === type[0] &&
+                (occ.img.props as React.SVGProps<SVGElement>).stroke === type[1])
+            }
+          });
         })
       );
     }
@@ -131,9 +135,18 @@ const List: React.FC = () => {
         arrayOfItems.flatMap((occupationArray) => {
           return occupationArray.filter(
             (occ) =>
-              occupation === occ.name.toLowerCase() &&
+            {
+              if(type.length===1){
+                return (occupation.toLocaleLowerCase() === occ.name.toLowerCase() &&
               React.isValidElement(occ.img) &&
-              (occ.img.props as React.SVGProps<SVGElement>).fill === type[0]
+              (occ.img.props as React.SVGProps<SVGElement>).fill === type[0])
+              }
+              if(type.length===2&&occ.img.props.stroke!==undefined){
+               return ( occupation.toLowerCase() === occ.name.toLowerCase() &&
+              React.isValidElement(occ.img) &&
+              (occ.img.props as React.SVGProps<SVGElement>).fill === type[0]&&(occ.img.props as React.SVGProps<SVGElement>).stroke === type[1])
+              }
+            }
           );
         })
       );
@@ -144,8 +157,10 @@ const List: React.FC = () => {
     clickable: true,
     renderBullet: function (index, className) {
       let res = "";
-      if(index<3)
-      res += `<span class="${className} ${isDark ? "isDark" : ""}">${index + 1}</span>`;
+      if (index < 3)
+        res += `<span class="${className} ${isDark ? "isDark" : ""}">${
+          index + 1
+        }</span>`;
       return res;
     },
   };
@@ -154,7 +169,9 @@ const List: React.FC = () => {
       clickable: true,
       renderBullet: function (index, className) {
         let res = "";
-        res += `<span class="${className} ${isDark ? "isDark" : ""}">${index + 1}</span>`;
+        res += `<span class="${className} ${isDark ? "isDark" : ""}">${
+          index + 1
+        }</span>`;
         return res;
       },
     };
@@ -185,7 +202,7 @@ const List: React.FC = () => {
         >
           {arrayOfOccupations.map((item, index) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={index}>
                 <div key={index}>
                   {item.img}
                   <h3 style={{ paddingTop: "30px", fontSize: "14px" }}>
@@ -203,9 +220,13 @@ const List: React.FC = () => {
               </SwiperSlide>
             );
           })}
-          
-          <div className={`swiper-button-prev ${isDark?"isDarkButton":""}`} ></div>
-          <div className={`swiper-button-next ${isDark?"isDarkButton":""}`}></div>
+
+          <div
+            className={`swiper-button-prev ${isDark ? "isDarkButton" : ""}`}
+          ></div>
+          <div
+            className={`swiper-button-next ${isDark ? "isDarkButton" : ""}`}
+          ></div>
         </Swiper>
       </div>
     </div>

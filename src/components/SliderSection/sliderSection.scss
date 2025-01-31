@@ -2,6 +2,16 @@
   background: no-repeat center url("../../../public/imgs/background.png");
   background-size: cover;
   padding: 145px 140px;
+  .slider-bottom-line{
+    height:10px;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border: none;
+    background-color: rgba(61, 148, 142, 1);
+    justify-self: bottom;
+  }
 }
 .slider-container-caption {
   display: grid;

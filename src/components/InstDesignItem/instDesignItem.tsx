@@ -8,7 +8,6 @@ interface InstDesignItemProps {
 }
 const InstDesignItem: React.FC<InstDesignItemProps> = ({title, description, items}) => {
     const {isDark} = useContext(ThemeContext);
-    console.log("isDark",isDark);
     return(
         <div className="instructional-design-description-item" style={{ color: isDark!==false ? " rgba(255, 255, 255, 1)":"rgba(66, 66, 66, 1)" }}>
             <h3>
