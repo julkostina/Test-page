@@ -20,8 +20,16 @@ import { ThemeContext } from "../../contexts/themeContext.tsx";
 const List: React.FC = () => {
   const [search, setSearch] = React.useState<string>("");
   const [type, setType] = React.useState<string[]>([]);
-  const [occupation, setOccupation] = React.useState<string>("");
-  let itemDescriptions = [
+  const [occupation, setOccupation] = React.useState<string>("All");
+  const isDark = React.useContext(ThemeContext);
+  
+  type ItemDescription = {
+    name: string;
+    description: string;
+    img: React.ReactElement<React.SVGProps<SVGElement>>;
+  };
+  
+  let itemDescriptions: ItemDescription[] = [
     {
       name: "INSTRUCTIONAL DESIGN",
       description:
@@ -67,38 +75,52 @@ const List: React.FC = () => {
       ),
     },
   ];
-  const arrayOfOccupations = typeStyles.map((style) => {
-    const isDark = React.useContext(ThemeContext);
-   return  itemDescriptions.map((item) => {
-    console.log("occupation",occupation);
+  
+  const arrayOfItems = typeStyles.slice(1).map((style) => {
+   return  itemDescriptions.flatMap((item) => {
       return {
         name: item.name,
         description: item.description,
-        img: React.cloneElement(item.img, { fill: style.background, stroke: style.border?style.type[1]:"rgb(255, 255, 255)"}),
+        img: React.cloneElement(item.img, { fill: style.type[0], stroke: style.border?style.type[1]:"rgb(255, 255, 255)"}),
         hrStyle: style.background!=="rgba(217, 217, 217, 0)"?style.background:style.type[1]
       };
     });
   });
+  const [arrayOfOccupations, setArrayOfOccupations] = React.useState<{ name: string; description: string; img: React.ReactNode; hrStyle: string; }[]>(arrayOfItems.flatMap((item)=>item));
+  console.log("type: "+type[0]);
+  React.useEffect(()=>{
+    if(occupation.toLocaleLowerCase()==="all"&&type.length===0){setArrayOfOccupations(()=>arrayOfItems.flat())}
+    if(occupation.toLocaleLowerCase()!=="all"&&type.length===0){setArrayOfOccupations(()=>arrayOfItems.flatMap(occupationArray => {
+      return occupationArray.filter(occ =>  occupation===occ.name.toLowerCase());
+    }));}
+    if(occupation.toLocaleLowerCase()==="all"&&type.length!==0){setArrayOfOccupations(()=>arrayOfItems.flatMap(occupationArray => {
+      return occupationArray.filter(occ =>  React.isValidElement(occ.img) && (occ.img.props as React.SVGProps<SVGElement>).fill === type[0]);
+    }));}
+    if(occupation.toLocaleLowerCase()!=="all"&&type.length!==0){setArrayOfOccupations(()=>arrayOfItems.flatMap(occupationArray => {
+      return occupationArray.filter(occ =>  occupation===occ.name.toLowerCase()&&React.isValidElement(occ.img) && (occ.img.props as React.SVGProps<SVGElement>).fill === type[0]);
+    }));}
+  },[occupation, type])
+  console.log("arrayOfOccupations: ",arrayOfOccupations);
   const pagination = {
     clickable: true,
     renderBullet: function (index, className) {
       let res='';
-      if(index===0){
-       res+='<button className="pagination-button"><img src="./imgs/arrow-grey.svg"/></button>';
-      }
-      if(index<3&&index!==arrayOfOccupations.length-1){
+      // if(index===0&&arrayOfOccupations.length>4){
+      //  res+='<button className="pagination-button"><img src="./imgs/arrow-grey.svg"/></button>';
+      // }
+      // if(index%4===0&&index!==arrayOfOccupations.length-1){
         res+='<span class="' + className + `">` + (index + 1) + "</span>";
-      }
-      if(index===arrayOfOccupations.length-1){
-        res+='<button className="pagination-button"><img src="./imgs/arrow-grey.svg"/></button>';
-      }
+      // }
+      // if(index===16&&arrayOfOccupations.length>4){
+      //   res+='<button className="pagination-button"><img src="./imgs/arrow-grey.svg"/></button>';
+      // }
       return res;
     }
   };
   return (
     <div className="list">
       <div className="list-top">
-        <Search search={search} setSearch={setSearch} />
+        <Search search={arrayOfOccupations} setSearch={setArrayOfOccupations} />
         <TypeButton type={type} setType={setType} />
         <OccupationButton
           occupation={occupation}
@@ -110,31 +132,30 @@ const List: React.FC = () => {
           pagination={pagination}
           modules={[Pagination]}
           className="list-description-swiper"
+          slidesPerView={4}
+          spaceBetween={75}
         >
-          {arrayOfOccupations.filter(occupationArray => occupationArray.some(occupation => type.includes(occupation.name))).map((_, i) => (
-            <SwiperSlide key={i} style={{
-              display:"flex",
-              gap:"75px"
-            }}>
-              {_.map((item, index) => (
-                <div  key={index}>
-                  {item.img}
-                  <h3 style={{ paddingTop: "30px", fontSize: "14px" }}>
-                    {item.name}
-                  </h3>
-                  <hr
-                    style={{
-                      border:"none",
-                      height:"3px",
-                      backgroundColor:
-                        item.hrStyle,
-                    }}  
-                  />
-                  <p>{item.description}</p>
-                </div>
-              ))}
-            </SwiperSlide>
-          ))}
+{arrayOfOccupations.map((item, index) => {
+  return (
+    <SwiperSlide key={index} style={{ display: "flex", gap: "75px" }}>
+      <div key={index}>
+        {item.img}
+        <h3 style={{ paddingTop: "30px", fontSize: "14px" }}>
+          {item.name}
+        </h3>
+        <hr
+          style={{
+            border: "none",
+            height: "3px",
+            backgroundColor: item.hrStyle,
+          }}
+        />
+        <p>{item.description}</p>
+      </div>
+    </SwiperSlide>
+  );
+})}
+    
         </Swiper>
       </div>
     </div>

@@ -21,7 +21,6 @@ const SliderSection: React.FC = () => {
       }
     });
   }, []);
-  console.log("photos", photos);
   return (
     <section className="slider" >
       <div className="slider-container">

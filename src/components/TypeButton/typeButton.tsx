@@ -8,11 +8,11 @@ interface TypeButtonProps {
 }
 
 export const typeStyles = [
-  { background: "rgba(217, 217, 217, 1)", type: ["rgba(217, 217, 217, 1)"] },
-  { background: "rgba(231, 208, 140, 1)", type: ["rgba(231, 208, 140, 1)"] },
-  { background: "rgba(61, 148, 142, 1)", type: ["rgba(61, 148, 142, 1)"] },
-  { background: "rgba(217, 217, 217, 0)", border: "1px solid rgba(61, 148, 142, 1)", type: ["rgba(217, 217, 217, 0)", "rgba(61, 148, 142, 1)"] },
-  { background: "rgba(217, 217, 217, 0)", border: "1px solid rgba(231, 208, 140, 1)", type: ["rgba(217, 217, 217, 0)", "rgba(231, 208, 140, 1)"] }
+  { background: "rgba(217, 217, 217, 1)", type: [] },
+  { background: "rgba(231, 208, 140, 1)", type: ["rgba(220, 206, 144, 1)"] },
+  { background: "rgba(61, 148, 142, 1)", type: ["rgba(41, 180, 173, 1)"] },
+  { background: "rgba(217, 217, 217, 0)", border: "1px solid rgba(61, 148, 142, 1)", type: ["rgba(217, 217, 217, 0)", "rgba(41, 180, 173, 1)"] },
+  { background: "rgba(217, 217, 217, 0)", border: "1px solid rgba(181, 183, 182, 1)", type: ["rgba(217, 217, 217, 0)", "rgba(181, 183, 182, 1)"] }
 ];
 
 const TypeButton: React.FC<TypeButtonProps> = ({ type, setType }) => {
