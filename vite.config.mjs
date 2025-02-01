@@ -7,5 +7,5 @@ export default defineConfig({
 	build: {
 		commonjsOptions: { transformMixedEsModules: true },
 	},
-	base: "/Test-page/dist/",
+	base: "/Test-page/",
 });
