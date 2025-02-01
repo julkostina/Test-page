@@ -10,6 +10,7 @@
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.4.1",
     "@mui/material": "^6.4.1",
+    "@types/react": "^19.0.8",
     "cra-template-typescript": "1.2.0",
     "pexels": "^1.4.0",
     "react": "^19.0.0",
