@@ -1,9 +1,11 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
-// Use dynamic import here:
-import viteTsconfigPaths from 'vite-tsconfig-paths'; // Correct import
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
+import viteTsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  plugins: [react(), viteTsconfigPaths()], // Use the imported function
-  
+	plugins: [react(), viteTsconfigPaths()],
+	build: {
+		commonjsOptions: { transformMixedEsModules: true },
+	},
+	base: "/Test-page/",
 });
