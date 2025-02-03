@@ -1,9 +1,6 @@
 .slider {
   background: no-repeat center url("../../../public/imgs/background.png");
   background-size: cover;
-  @media screen and (max-width: 600px) {
-    padding: 30px 5px;
-  }
   padding: 145px 140px;
   .slider-bottom-line {
     height: 10px;
@@ -15,18 +12,15 @@
     background-color: rgba(61, 148, 142, 1);
     justify-self: bottom;
   }
+  @media screen and (max-width: 600px) {
+    padding: 30px 5px;
+  }
+ 
 }
 .slider-container-caption {
   display: flex;
   flex-direction: column;
   background-color: rgba(255, 255, 255, 1);
-  @media screen and (max-width: 600px) {
-    padding: 20px 3vw;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-    flex-direction: row;
-  }
   border-radius: 20px;
   padding: 144px 42px 55px 41px;
   gap: 55px;
@@ -48,16 +42,25 @@
     height: 48px;
     width: 177px;
   }
+  @media screen and (max-width: 600px) {
+    padding: 20px 3vw;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-direction: row;
+  }
+  
 }
 .slider-container {
   display: flex;
+  height: 400px;
+  gap: 20px;
+  width: 100%;
   @media screen and (max-width: 600px) {
     flex-direction: column;
     height: 700px;
   }
-  height: 400px;
-  gap: 20px;
-  width: 100%;
+  
 }
 .slider-footer {
   position: absolute;
