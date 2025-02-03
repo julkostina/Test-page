@@ -26,7 +26,7 @@ const SliderSection: React.FC = () => {
       <div className="slider-container">
         <div className="slider-container-caption" style={{ backgroundColor: isDark ? "rgba(65, 65, 65, 1)" : "rgba(255, 255, 255, 1)", color: isDark ? "rgba(255, 255, 255, 1)" : "rgba(52, 52, 52, 1)" }}>
           <figure>
-            <img src="./imgs/logo.svg" alt="logo" />
+            <img src="./imgs/logo.svg" alt="logo"/>
             <hr />
             <figcaption>
               <p>Taking Learning to the Next Level</p>

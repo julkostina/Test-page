@@ -36,7 +36,6 @@ const Search: React.FC<SearchProps> = ({search, setSearch}) => {
           const arrayOfSearch = e.target.value.toLowerCase().split(" ");
           return arrayOfSearch.some((s) => {
             return arrayOfItems.some((i) => {
-              console.log("s: " + s, "i: " + i, "result: ", i.includes(s));
               return i.includes(s);
             });
           });
@@ -59,7 +58,15 @@ const Search: React.FC<SearchProps> = ({search, setSearch}) => {
         "&::placeholder": {
             color: isDark ? "rgba(255, 255, 255, 1)" : "rgba(52, 52, 52, 1)", 
           },
-      }
+      },
+      '@media screen and (min-width: 600px) and (max-width: 800px)': {
+  width: '530px',
+  margin:"0 20px",
+  height: '35px',
+  '& .MuiOutlinedInput-input': {
+    padding: '8px 15px',
+  },
+}
     }}  
     InputProps={{
       endAdornment: (

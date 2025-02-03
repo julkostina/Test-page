@@ -21,3 +21,13 @@
     gap: 10px;
   }
 }
+@media screen and (max-width: 600px) {
+  .instructional-design-description-item {
+    width: 80vw;
+    gap:10px;
+    h3{
+      font-size: 30px;
+      line-height: 30px;
+    } 
+  }
+}

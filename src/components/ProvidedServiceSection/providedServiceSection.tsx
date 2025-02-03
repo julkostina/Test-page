@@ -42,7 +42,7 @@ const ProvidedServiceSection: React.FC = () => {
   "We constantly look for ways to save your time and money while exceeding your expectations.",
   "We don't stop working until you are satisfied with the products we deliver."
 ]}/>
-<img src="./imgs/Ellipse2.png" alt="happy team" />
+<img src="./imgs/Ellipse2.png" alt="Happy team" className="clients-love-img"/>
       </div>
     </section>
   );

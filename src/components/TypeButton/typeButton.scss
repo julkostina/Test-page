@@ -6,6 +6,12 @@ $light-grey: rgba(235, 235, 235, 1);
   gap: 10px;
   align-items: center;
   height: 28px;
+  @media screen and (max-width: 600px) {
+    padding: 0 5px;
+  }
+  @media screen and (min-width: 600px) and (max-width: 800px) {
+    padding: 0 25px;
+  }
 }
 .type-button-types {
   background-color: $light-grey;

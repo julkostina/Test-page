@@ -13,10 +13,51 @@ $white:rgba(255, 255, 255, 1);
     line-height: 60px;
     text-align: center;
   }
-  
 }
+
 .talk-about-section-caption {
   display: grid;
   text-align: center;
   align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  #talk-about-section {
+    width: 691px;
+    gap: 20px;
+    h1{
+      font-size: 46px;
+    line-height: 40px;
+    }
+  }
+  .talk-about-section-caption {
+    gap: 20px;
+  } 
+}
+@media screen and (min-width: 600px) and (max-width: 800px) {
+  #talk-about-section {
+    padding: 50px 20px 62px 20px;
+    gap: 30px;
+    h1{
+      font-size: 48px;
+    line-height: 42px;
+    }
+  }
+  .talk-about-section-caption {
+    gap: 15px;
+  } 
+}
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+  #talk-about-section {
+    padding: 50px 120px ;
+    gap: 30px;
+    h1{
+      font-size: 48px;
+    line-height: 42px;
+    }
+  }
+  .talk-about-section-caption {
+    gap: 15px;
+  } 
+  
 }

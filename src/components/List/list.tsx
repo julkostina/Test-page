@@ -157,7 +157,6 @@ const List: React.FC = () => {
     clickable: true,
     renderBullet: function (index, className) {
       let res = "";
-      if (index < 3)
         res += `<span class="${className} ${isDark ? "isDark" : ""}">${
           index + 1
         }</span>`;
@@ -168,11 +167,9 @@ const List: React.FC = () => {
     pagination = {
       clickable: true,
       renderBullet: function (index, className) {
-        let res = "";
-        res += `<span class="${className} ${isDark ? "isDark" : ""}">${
+        return  `<span class="${className} ${isDark ? "isDark" : ""}">${
           index + 1
         }</span>`;
-        return res;
       },
     };
   }, [isDark]);
@@ -191,19 +188,46 @@ const List: React.FC = () => {
           modules={[Pagination, Navigation]}
           onSwiper={setSliderContent}
           className="list-description-swiper"
-          slidesPerView={4}
-          slidesPerGroup={4}
-          spaceBetween={75}
+          // slidesPerView={4}
+          // slidesPerGroup={4}
+          // spaceBetween={75}
           pagination={pagination}
           navigation={{
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
           }}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+              slidesPerGroup: 1,
+              spaceBetween: 0,
+            },
+            600: {
+              slidesPerView: 2,
+              slidesPerGroup: 2,
+              spaceBetween: 30,
+            },
+            800: {
+              slidesPerView: 3,
+              slidesPerGroup: 3,
+              spaceBetween: 0,
+            },
+            1024: {
+              slidesPerView: 3,
+              slidesPerGroup: 3,
+              spaceBetween: 30,
+            },
+            1200: {
+              slidesPerView: 4,
+              slidesPerGroup: 4,
+              spaceBetween: 75,
+            },
+          }}
         >
           {arrayOfOccupations.map((item, index) => {
             return (
-              <SwiperSlide key={index}>
-                <div key={index}>
+              <SwiperSlide key={index} >
+                <div key={index} style={{ width: "202px" }}>
                   {item.img}
                   <h3 style={{ paddingTop: "30px", fontSize: "14px" }}>
                     {item.name}
@@ -220,7 +244,6 @@ const List: React.FC = () => {
               </SwiperSlide>
             );
           })}
-
           <div
             className={`swiper-button-prev ${isDark ? "isDarkButton" : ""}`}
           ></div>

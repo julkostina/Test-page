@@ -2,7 +2,8 @@
   display: grid;
   gap: 75px;
   align-items: center;
-  ul {
+ 
+  ul{
     display: flex;
     gap: 97px;
     hr {
@@ -27,12 +28,7 @@
     }
   }
 }
-.list-description {
-  overflow: scroll;
-  li {
-    width: 202px;
-  }
-}
+
 .swiper-button-prev::after,
 .swiper-button-next::after {
   position: absolute;
@@ -50,12 +46,15 @@
 }
 .list-description-swiper {
   height: 50vh;
-  display: flex;
-  flex-direction: column;
-  gap: 75px;
-
+  width: 1110px;
   .isDarkButton::after {
     color: rgba(255, 255, 255, 0.4);
+  }
+  .swiper-button-prev{
+    left: -60px;
+  }
+  .swiper-button-next{
+    right: -60px;
   }
   .swiper-pagination-bullets {
     display: flex;
@@ -95,4 +94,76 @@
       color: rgba(255, 255, 255, 1);
     }
   }
+}
+
+@media screen and (max-width: 600px) {
+  .list{
+    gap:30px;
+  }
+  .list-top{
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+  }
+  .list-description-swiper {
+    width:400px;
+    .swiper-pagination-bullets{
+      width: 200px;
+      overflow: scroll;
+    }
+  } 
+}
+@media screen and (min-width:600px) and (max-width: 800px) {
+  .list {
+    gap: 50px;
+    width: 100vw;
+    overflow: hidden;
+  }
+  .list-top {
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+  }
+  .list-description-swiper {
+    width: 600px;
+    .swiper-pagination-bullets{
+      justify-content: center;
+      left:-80px;
+    }
+  }
+  .swiper-button-prev::after, .swiper-button-next::after{
+    bottom: -152px;
+  }
+  .swiper-button-prev::after{
+    left: 100px;
+  }
+  .swiper-button-next::after{
+    right: 250px;
+  } 
+}
+@media screen and (min-width:800px) and (max-width: 1024px) {
+  .list {
+    gap: 50px;
+    width: 100vw;
+    overflow: hidden;
+  }
+  .list-top {
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+  }
+  .list-description-swiper {
+    width: 800px;
+    .swiper-pagination-bullets{
+      justify-content: center;
+      left:-80px;
+    }
+  }
+  .swiper-button-prev::after, .swiper-button-next::after{
+    display: none;
+  }
+  .swiper-button-next, .swiper-button-prev{
+    display: none;
+  }
+  
 }

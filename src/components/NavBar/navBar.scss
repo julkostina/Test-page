@@ -1,20 +1,130 @@
-nav{
-    display: flex;
-    position:sticky;
-    top:0;
-    z-index: 5;
-    justify-content: space-between;
-    padding: 9px 140px ;
-    background-color: rgba(52, 52, 52, 1);
-    align-items: center;
+// Variables
+$nav-bg-color: rgba(52, 52, 52, 1);
+$nav-text-color: rgba(255, 255, 255, 1);
+$padding-large: 9px 140px;
+$padding-small: 1px 0px;
+$gap-large: 37px;
+$gap-medium: 12px;
+$gap-small: 10px;
+$font-size-small: 10px;
+$line-height-small: 6px;
+$img-width-small: 60px;
+
+// Mixins
+@mixin nav-padding($padding) {
+  padding: $padding;
 }
+
+@mixin nav-details-styles($gap) {
+  align-items: center;
+  justify-content: space-between;
+  gap: $gap;
+}
+
+// Styles
+nav {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  justify-content: space-between;
+  @include nav-padding($padding-large);
+  background-color: $nav-bg-color;
+  align-items: center;
+}
+
 .nav-details {
-    display: inline-flex;
-    gap:37px;
-    a{
-      color: rgba(255, 255, 255, 1);
+  display: inline-flex;
+  gap: $gap-large;
+
+  a {
+    color: $nav-text-color;
+  }
+
+  li:hover {
+    cursor: pointer;
+  }
+}
+
+// Media Queries
+@media screen and (max-width: 600px) {
+  nav {
+    @include nav-padding($padding-small);
+    width: 100vw;
+
+    img {
+      width: $img-width-small;
+      display: none;
     }
-  li:hover{
-    cursor:pointer;
+
+    a {
+      font-size: $font-size-small;
+      line-height: $line-height-small;
+    }
+
+    .home {
+      display: none;
+    }
+  }
+
+  .nav-details {
+    @include nav-details-styles($gap-medium);
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 800px) {
+  nav {
+    @include nav-padding($padding-small);
+    width: 100vw;
+    display: flex;
+    gap: $gap-small;
+    justify-content: center;
+
+    img {
+      width: $img-width-small;
+    }
+
+    a {
+      font-size: $font-size-small;
+      line-height: $line-height-small;
+    }
+  }
+
+  .nav-details {
+    @include nav-details-styles($gap-medium);
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1024px) {
+  nav {
+    @include nav-padding($padding-small);
+    width: 100vw;
+    display: flex;
+    gap: $gap-small;
+    justify-content: center;
+
+    img {
+      width: $img-width-small;
+    }
+
+    a {
+      font-size: $font-size-small;
+      line-height: $line-height-small;
+    }
+  }
+
+  .nav-details {
+    @include nav-details-styles($gap-medium);
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+  nav {
+    @include nav-padding(9px 30px);
+    width: 100vw;
+
+    img {
+      padding-right: 10px;
+    }
   }
 }

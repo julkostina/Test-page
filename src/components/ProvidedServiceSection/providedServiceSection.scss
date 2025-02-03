@@ -1,47 +1,77 @@
+// Variables
 $white: rgba(255, 255, 255, 1);
 $green: rgba(61, 148, 140, 1);
 $light-grey: rgba(153, 155, 154, 1);
 $grey: rgba(52, 52, 52, 1);
 $dark-grey: rgba(66, 66, 66, 1);
 $yellow: rgba(231, 208, 140, 1);
+$padding-large: 140px;
+$padding-medium: 65px 141px 0 200px;
+$padding-small: 30px 20px;
+$gap-large: 90px;
+$gap-medium: 35px;
+$gap-small: 5px;
+$font-size-large: 75px;
+$font-size-medium: 50px;
+$font-size-small: 30px;
+$line-height-large: 75px;
+$line-height-medium: 60px;
+$line-height-small: 36px;
+
+// Mixins
+@mixin responsive-font($font-size, $line-height) {
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+@mixin responsive-padding($padding) {
+  padding: $padding;
+}
+
+@mixin responsive-gap($gap) {
+  gap: $gap;
+}
+
+// Styles
 .provided-services {
   height: 350vh;
   background-color: $white;
-  background-image: url("../../../public/imgs/Ellipse\ 16\(1\).svg"),
-    url("../../../public/imgs/Vector\ 10.svg"),
-    url("../../../public/imgs/Ellipse\ 16\(1\).svg"),
-    url("../../../public/imgs/Group\ 72.svg");
+  display: flex;
+  flex-direction: column;
+  @include responsive-gap($gap-large);
   background-repeat: no-repeat;
   background-position: 128px 90px, 140px 115px, 1288px 1062px, 131px 1087px;
-  display: grid;
-  gap: 90px;
 }
+
 #provided-services-search {
   height: 95vh;
   display: grid;
-  gap: 35px;
+  @include responsive-gap($gap-medium);
   align-items: center;
-  padding: 65px 141px 0 200px;
+  @include responsive-padding($padding-medium);
+
   h1 {
     text-align: left;
     font-family: "Poppins-SemiBold", sans-serif;
-    font-size: 50px;
-    line-height: 60px;
+    @include responsive-font($font-size-medium, $line-height-medium);
     color: $light-grey;
   }
 }
+
 .provided-services-design {
   height: 565px;
   width: 1240px;
-  margin:  0;
+  margin: 0;
   display: flex;
   position: relative;
   background-image: url("../../../public/imgs/background-image.png");
   background-repeat: no-repeat;
+
   img {
     align-self: end;
     margin-right: 115px;
   }
+
   hr {
     position: absolute;
     background-color: $green;
@@ -52,26 +82,30 @@ $yellow: rgba(231, 208, 140, 1);
     border: none;
   }
 }
+
 .provided-services-design-description {
   width: 100vw;
   color: $dark-grey;
-  padding: 140px;
+  @include responsive-padding($padding-large);
+
   h1 {
-    font-size: 75px;
-    line-height: 75px;
+    @include responsive-font($font-size-large, $line-height-large);
     font-family: "Poppins-SemiBold";
   }
+
   span {
     font-size: 80px;
     line-height: 80px;
     font-family: "Poppins-SemiBold";
   }
+
   p {
     margin-top: 5px;
     font-family: "Poppins-ExtraLight";
     font-size: 35px;
     line-height: 35px;
   }
+
   button {
     margin-top: 35px;
     padding: 15px 46px;
@@ -83,33 +117,264 @@ $yellow: rgba(231, 208, 140, 1);
     line-height: 20px;
     border: none;
     border-radius: 25px;
+
     &:hover {
       cursor: pointer;
     }
   }
 }
+
 .instructional-design-description {
   display: flex;
-  gap: 108px;
+  @include responsive-gap(50px);
   padding: 37px 0;
   width: 1100px;
 }
-.clients-love{
+
+.clients-love {
   display: flex;
-  gap: 108px;
-  align-items: center;
-  padding:0 0 94px 141px ;
+  @include responsive-gap(50px);
+  padding: 0 0 94px 141px;
 }
+
 #instructional-design {
   display: flex;
   flex-direction: column;
   justify-content: end;
-  padding:30px 0 0 200px;
+  padding: 30px 0 0 200px;
+
   h1 {
     font-size: 50px;
     font-family: "Poppins-SemiBold";
     line-height: 60px;
-    color:$light-grey;
+    color: $light-grey;
+  }
+}
 
+// Media Queries
+@media screen and (min-width: 1200px) {
+  .provided-services {
+    background-image: url("../../../public/imgs/Ellipse 16(1).svg"),
+      url("../../../public/imgs/Vector 10.svg"),
+      url("../../../public/imgs/Ellipse 16(1).svg"),
+      url("../../../public/imgs/Group 72.svg");
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #provided-services-search {
+    @include responsive-padding($padding-small);
+    @include responsive-gap($gap-small);
+    height: auto;
+
+    h1 {
+      @include responsive-font($font-size-small, $line-height-small);
+    }
+  }
+
+  .provided-services-design {
+    width: 100vw;
+
+    img {
+      margin: 0 0 0 -120px;
+      height: 400px;
+    }
+
+    button {
+      padding: 20px 30px;
+    }
+
+    hr {
+      width: 500px;
+    }
+  }
+
+  .provided-services-design-description {
+    padding: 5vh 0 0 5vh;
+
+    h1,
+    span {
+      font-size: 36px;
+      line-height: 38px;
+    }
+
+    span {
+      font-size: 46px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  .provided-services {
+    flex-direction: column;
+    @include responsive-gap($gap-small);
+    align-items: flex-start;
+  }
+
+  .instructional-design-description,
+  .clients-love {
+    flex-direction: column;
+    width: 400px;
+    @include responsive-gap($gap-small);
+
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  #instructional-design {
+    h1 {
+      font-size: 44px;
+      line-height: 46px;
+    }
+  }
+
+  .clients-love,
+  #instructional-design {
+    padding: 0 0 5vh 5vh;
+  }
+
+  .clients-love-img {
+    align-self: center;
+    margin-right: 1;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 800px) {
+  .provided-services-design {
+    width: 100vw;
+
+    img {
+      margin: 0 0 0 -120px;
+    }
+
+    button {
+      padding: 20px 30px;
+    }
+
+    hr {
+      width: 500px;
+    }
+  }
+
+  .provided-services-design-description {
+    padding: 7vh 0 0 5vh;
+
+    h1,
+    span {
+      font-size: 50px;
+      line-height: 46px;
+    }
+
+    span {
+      font-size: 62px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    button {
+      padding: 20px 50px;
+    }
+  }
+
+  .provided-services {
+    @include responsive-gap($gap-small);
+    align-items: flex-start;
+  }
+
+  .instructional-design-description,
+  .clients-love {
+    flex-direction: column;
+    width: 400px;
+    @include responsive-gap($gap-small);
+
+    img {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  #provided-services-search {
+    padding: 10px 0 0 50px;
+
+    h1 {
+      font-size: 50px;
+      line-height: 60px;
+    }
+  }
+
+  .clients-love,
+  #instructional-design {
+    padding: 0 0 5vh 5vh;
+  }
+
+  .clients-love-img {
+    align-self: center;
+    margin-right: 1;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+  .provided-services-design {
+    width: 100vw;
+
+    hr {
+      width: 900px;
+    }
+  }
+
+  .provided-services-design-description {
+    padding: 15vh 0 0 5vh;
+
+    h1,
+    span {
+      font-size: 60px;
+      line-height: 60px;
+    }
+
+    span {
+      font-size: 70px;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    button {
+      padding: 20px 60px;
+    }
+  }
+
+  .provided-services {
+    @include responsive-gap($gap-large);
+    align-items: flex-start;
+  }
+
+  #provided-services-search {
+    padding: 20px 0 0 100px;
+
+    h1 {
+      font-size: 40px;
+      line-height: 50px;
+    }
+  }
+
+  .clients-love,
+  #instructional-design {
+    padding: 0 0 5vh 5vh;
+    gap: 0;
+
+    img {
+      width: 300px;
+      height: 300px;
+    }
   }
 }
